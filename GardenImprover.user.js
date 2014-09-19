@@ -74,29 +74,31 @@ function insertLink(){
 		for(var i=0; i < enemies_list.length || i < 1; i++){
 			for(var j in gardenData[type][i]){
 				
-				var linkLeek = document.createElement('div');
-				
-				// Génération du lien et de ses propriétés
-				var a = document.createElement('a');
-				a.href = '/' + fight_type_to_link[type] + '/' + gardenData[type][i][j]['id'];
-				a.style = 'opacity:0.12;';
-				a.setAttribute('onMouseOut',  'this.style.opacity=0.12');
-				a.setAttribute('onMouseOver', 'this.style.opacity=0.25');
-				
-				// Génération de l'image et de ses propriétés
-				var img = document.createElement('img');
-				img.src = 'http://static.leekwars.com/image/footer_leek.png';
-				img.alt = gardenData[type][i][j]['name'];
-				img.title = 'Afficher la page de ' + gardenData[type][i][j]['name'];
-				img.width = 17;
-				
-				a.appendChild(img);
-				linkLeek.appendChild(a);
-				
-				if(enemies_list.length == 0 || enemies_list.length == undefined){
-					enemies_list.children[j].appendChild(linkLeek);	// Insertion du contenu dans le DOM
-				}else{
-					enemies_list[i].children[j].appendChild(linkLeek);	// Insertion du contenu dans le DOM
+				if(gardenData[type][i][j]['name'] != 'Plus de combats'){
+					var linkLeek = document.createElement('div');
+					
+					// Génération du lien et de ses propriétés
+					var a = document.createElement('a');
+					a.href = '/' + fight_type_to_link[type] + '/' + gardenData[type][i][j]['id'];
+					a.style = 'opacity:0.12;';
+					a.setAttribute('onMouseOut',  'this.style.opacity=0.12');
+					a.setAttribute('onMouseOver', 'this.style.opacity=0.25');
+					
+					// Génération de l'image et de ses propriétés
+					var img = document.createElement('img');
+					img.src = 'http://static.leekwars.com/image/footer_leek.png';
+					img.alt = gardenData[type][i][j]['name'];
+					img.title = 'Afficher la page de ' + gardenData[type][i][j]['name'];
+					img.width = 17;
+					
+					a.appendChild(img);
+					linkLeek.appendChild(a);
+					
+					if(enemies_list.length == 0 || enemies_list.length == undefined){
+						enemies_list.children[j].appendChild(linkLeek);	// Insertion du contenu dans le DOM
+					}else{
+						enemies_list[i].children[j].appendChild(linkLeek);	// Insertion du contenu dans le DOM
+					}
 				}
 			}
 		}
