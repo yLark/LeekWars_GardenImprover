@@ -85,10 +85,10 @@ function insertLink(){
 				
 				// Génération de l'image et de ses propriétés
 				var img = document.createElement('img');
-				img.src = 'http://static.leekwars.com/image/house.png';
+				img.src = 'http://static.leekwars.com/image/footer_leek.png';
 				img.alt = gardenData[type][i][j]['name'];
 				img.title = 'Afficher la page de ' + gardenData[type][i][j]['name'];
-				img.width = 18;
+				img.width = 17;
 				
 				a.appendChild(img);
 				linkLeek.appendChild(a);
